@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title data-layout-title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Test</title>
+</head>
+
+<th:block data-th-replace="fragments/head :: head"/>
+<th:block data-th-replace="fragments/body :: body"/>
+<th:block data-th-replace="fragments/scripts :: scripts"/>
+
+</html>

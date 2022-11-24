@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html data-layout-decorate="~{layout}">
+
+<head>
+    <title>Test</title>
+</head>
+
+<div data-layout-fragment="content">
+    <div class="container p-3" data-th-if="${test != null}" data-th-object="${test}">
+        <div class="row g-5">
+            <div class="col">
+                <h1 class="display-6 mb-3">
+                    <span>Test</span>
+                    <span data-th-text="*{id}"></span>
+                </h1>
+            </div>
+        </div>
+        <div class="row g-5">
+            <div class="col">
+                <form method="post" data-th-action="@{/tests/update}" data-th-object="${test}">
+                    <div>
+                        <label for="idInput" class="form-label">ID</label>
+                        <input type="text" class="form-control" data-th-value="*{id}" disabled>
+                        <input type="hidden" name="id" data-th-value="*{id}" id="idInput">
+                    </div>
+                    <div class="mb-3">
+                        <label for="nameInput" class="form-label">Name</label>
+                        <input type="text" class="form-control" name="name" data-th-value="*{name}" id="nameInput">
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-pencil"></i>
+                        <span>Ändern</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div data-th-if="${test == null}" class="container p-3">
+        <div class="alert alert-danger d-flex align-items-center" role="alert">
+            <i class="bi bi-exclamation-triangle me-2"></i>
+            <span>Test konnte nicht gefunden werden!</span>
+        </div>
+    </div>
+</div>
+
+</html>
